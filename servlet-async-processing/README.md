@@ -98,4 +98,4 @@ AsyncContext的目的并不是为了**提高性能**，也并不直接提供性�
  [src-SyncServlet]: src/main/java/me/chanjar/learning/SyncServlet.java
  [src-AsyncServlet1]: src/main/java/me/chanjar/learning/AsyncServlet1.java
  [src-AsyncServlet2]: src/main/java/me/chanjar/learning/AsyncServlet2.java
- [src-benchmark.jmx]: src/main/java/me/chanjar/learning/benchmark.jmx
+ [src-benchmark.jmx]: benchmark.jmx
