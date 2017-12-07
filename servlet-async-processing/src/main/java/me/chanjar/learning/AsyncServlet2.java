@@ -20,7 +20,7 @@ public class AsyncServlet2 extends HttpServlet {
   protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
     AsyncContext asyncCtx = req.startAsync();
-    executorService.submit(new SlowJob.SlowJobRunner(new SlowJob("async servlet1"), asyncCtx));
+    executorService.submit(new SlowJobRunner(new SlowJob("async servlet2"), asyncCtx));
 
   }
 
