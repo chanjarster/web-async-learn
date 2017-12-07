@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet(value = "/async-servlet-2", asyncSupported = true)
+@WebServlet(value = "/async-servlet-1", asyncSupported = true)
 public class AsyncServlet1 extends HttpServlet {
 
   @Override

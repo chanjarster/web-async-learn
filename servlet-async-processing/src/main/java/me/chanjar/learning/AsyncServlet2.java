@@ -11,7 +11,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.TimeUnit;
 
-@WebServlet(value = "/async-servlet-1", asyncSupported = true)
+@WebServlet(value = "/async-servlet-2", asyncSupported = true)
 public class AsyncServlet2 extends HttpServlet {
 
   private volatile ExecutorService executorService;
