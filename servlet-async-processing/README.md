@@ -12,7 +12,7 @@ Web容器一般来说处理请求的方式是：为每个request分配一个thre
 现在遇到了高负载，有超过200个request到Servlet-A，如果这个时候请求Servlet-B就会等待，因为所有HTTP thread都已经被Servlet-A占用了。
 这个时候工程师发现了问题，扩展了线程池大小到400，但是负载依然持续走高，现在有400个request到Servlet-A，Servlet-B依然无法响应。
 
-看到问题了没有，因为**HTTP thread和Worker thread耦合在了一起**，所以导致了当大量request到一个耗时操作时，就会将HTTP thread占满，导致整个Web容器就会无法响应。
+看到问题了没有，因为**HTTP thread和Worker thread耦合在了一起（就是同一个thread）**，所以导致了当大量request到一个耗时操作时，就会将HTTP thread占满，导致整个Web容器就会无法响应。
 
 但是如果使用AsyncContext，我们就可以将耗时的操作交给另一个thread去做，这样HTTP thread就被释放出来了，可以去处理其他请求了。
 
