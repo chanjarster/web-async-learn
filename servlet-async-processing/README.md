@@ -51,13 +51,11 @@ public class AsyncServlet extends HttpServlet {
 
 实际上这里并没有规定Worker thread到底从哪里来，也许是HTTP thread pool之外的另一个thread pool？还是说就是HTTP thread pool？
 
-[The Limited Usefulness of AsyncContext.start()][4]文章里写道：不同的Web容器对此有不同的实现，不过Tomcat实际上是利用HTTP thread pool来处理`AsyncContext.start()`的。
+[The Limited Usefulness of AsyncContext.start()][4]文章里写道：不同的Web容器对此有不同的实现，不过Tomcat实际上是利用HTTP thread pool来处理`AsyncContext.start()`的（见[AsyncStateMachine.java#L429][AsyncStateMachine.java_L429]）。
 
 这也就是说，我们原本是想释放HTTP thread的，但实际上并没有，因为有HTTP thread依然被用作Worker thread，只不过这个thread和接收请求的HTTP thread不是同一个而已。
 
 这个结论我们也可以通过[AsyncServlet1][src-AsyncServlet1]和[SyncServlet][src-SyncServlet]的Jmeter benchmark看出来，两者的throughput结果差不多。启动方法：启动[Main][src-Main]，然后利用Jmeter启动[benchmark.jmx][src-benchmark.jmx]（Tomcat默认配置下HTTP thread pool=200）。
-
-
 
 ## 使用ExecutorService
 
@@ -99,3 +97,4 @@ AsyncContext的目的并不是为了**提高性能**，也并不直接提供性�
  [src-AsyncServlet1]: src/main/java/me/chanjar/learning/AsyncServlet1.java
  [src-AsyncServlet2]: src/main/java/me/chanjar/learning/AsyncServlet2.java
  [src-benchmark.jmx]: benchmark.jmx
+ [AsyncStateMachine.java_L429]: https://github.com/apache/tomcat85/blob/TOMCAT_8_5_23/java/org/apache/coyote/AsyncStateMachine.java#L429
