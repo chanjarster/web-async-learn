@@ -17,7 +17,7 @@
     <module>tomcat-start</module>
     <module>servlet-async-io</module>
     <module>servlet-async-processing</module>
-    <module>spring-mvc-async</module>
+    <module>spring-mvc-async-processing</module>
   </modules>
 
   <dependencyManagement>
