@@ -24,8 +24,8 @@ https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/html
 
 StreamingResponseBodyReturnValueHandler
 
-HTTP Streaming Directly To The OutputStream
-https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/html/mvc.html#mvc-ann-async-output-stream
+[HTTP Streaming Directly To The OutputStream][HTTP Streaming Directly To The OutputStream]
+
 
 
 ## 对于Servlet Async IO的支持
@@ -35,16 +35,14 @@ https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/html
 
 
 * [Spring Web MVC Doc - Supported method return values][ref-1]
-* [Spring Web MVC Doc - Asynchronous Request Processing][ref-2]
-* [Spring Web MVC Doc - Configuring Asynchronous Request Processing][ref-3]
-* [Spring MVC 3.2 Preview: Introducing Servlet 3, Async Support][ref-4]
-* [Configuring Spring MVC Async Threads][ref-5]
-* [Is Servlet 3.1 (Read|Write)Listener supported by DeferredResult in Spring 4?][ref-6]
+* [HTTP Streaming][ref-2]
+* [HTTP Streaming With Server-Sent Events][ref-3]
+* [HTTP Streaming Directly To The OutputStream][ref-4]
+* [Spring MVC 3.2 Preview: Techniques for Real-time Updates][ref-5]
 
 [ref-1]: https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/html/mvc.html#mvc-ann-return-types
-[ref-2]: https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/html/mvc.html#mvc-ann-async
-[ref-3]: https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/html/mvc.html#mvc-ann-async-configuration
-[ref-4]: https://spring.io/blog/2012/05/07/spring-mvc-3-2-preview-introducing-servlet-3-async-support
-[ref-5]: http://www.clianz.com/2016/02/24/configuring-spring-mvc-async-threads/
-[ref-6]: https://stackoverflow.com/questions/28828355/is-servlet-3-1-readwritelistener-supported-by-deferredresult-in-spring-4
-[ref-7]: https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/html/mvc.html#mvc-ann-async-configuration-spring-mvc
+[ref-2]: https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/html/mvc.html#mvc-ann-async-http-streaming
+[ref-3]: https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/html/mvc.html#mvc-ann-async-sse
+[ref-4]: https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/html/mvc.html#mvc-ann-async-output-stream
+[ref-5]: https://spring.io/blog/2012/05/08/spring-mvc-3-2-preview-techniques-for-real-time-updates/
+
