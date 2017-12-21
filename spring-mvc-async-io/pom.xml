@@ -9,7 +9,7 @@
   </parent>
 
   <groupId>me.chanjar.learning</groupId>
-  <artifactId>spring-mvc-async-write</artifactId>
+  <artifactId>spring-mvc-async-io</artifactId>
   <packaging>war</packaging>
 
   <properties>

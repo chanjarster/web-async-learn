@@ -12,7 +12,7 @@ public class SlowJob {
     try {
       Thread.sleep(1000L);
 
-      return "Hi from " + name + ". \nCurrent Thread: " + Thread.currentThread().getName();
+      return "Hi from " + name + ". Current Thread: " + Thread.currentThread().getName() + "\n";
     } catch (InterruptedException e) {
       e.printStackTrace();
     }

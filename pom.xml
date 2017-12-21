@@ -18,7 +18,7 @@
     <module>servlet-async-io</module>
     <module>servlet-async-processing</module>
     <module>spring-mvc-async-processing</module>
-    <module>spring-mvc-async-write</module>
+    <module>spring-mvc-async-io</module>
   </modules>
 
   <dependencyManagement>
