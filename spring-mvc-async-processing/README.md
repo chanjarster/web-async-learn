@@ -110,7 +110,7 @@ public class CompletionFutureController {
 
 ## ResponseBodyEmitter
 
-> A [ResponseBodyEmitter][ref-12] can be returned to write multiple objects to the response asynchronously; also supported as the body within a ``ResponseEntity``.
+> A [ResponseBodyEmitter][ref-7] can be returned to write multiple objects to the response asynchronously; also supported as the body within a ``ResponseEntity``.
 
 用于异步的写入多个消息，使用的是client code自己的thread，Spring MVC使用``ResponseBodyEmitterReturnValueHandler``负责处理它。
 
@@ -154,9 +154,9 @@ public class ResponseBodyEmitterController {
 
 ## SseEmitter
 
-> An [SseEmitter][ref-13] can be returned to write Server-Sent Events to the response asynchronously; also supported as the body within a ``ResponseEntity``.
+> An [SseEmitter][ref-8] can be returned to write Server-Sent Events to the response asynchronously; also supported as the body within a ``ResponseEntity``.
 
-作用和`ResponseBodyEmitter`类似，也是异步的写入多个消息，使用的是client code自己的thread，区别在于它使用的是[Server-Sent Events][ref-14]。Spring MVC使用``ResponseBodyEmitterReturnValueHandler``负责处理它。
+作用和`ResponseBodyEmitter`类似，也是异步的写入多个消息，使用的是client code自己的thread，区别在于它使用的是[Server-Sent Events][w3-1]。Spring MVC使用``ResponseBodyEmitterReturnValueHandler``负责处理它。
 
 下面是例子[SseEmitterController][src-SseEmitterController]
 
@@ -197,7 +197,7 @@ public class SseEmitterController {
 
 ## StreamingResponseBody
 
-> A [StreamingResponseBody][ref-15] can be returned to write to the response OutputStream asynchronously; also supported as the body within a ``ResponseEntity``.
+> A [StreamingResponseBody][ref-9] can be returned to write to the response OutputStream asynchronously; also supported as the body within a ``ResponseEntity``.
 
 用于异步write outputStream，使用的是Spring MVC的``AsyncTaskExecutor``，Spring MVC使用``StreamingResponseBodyReturnValueHandler``负责处理它。要注意，Spring MVC并没有使用Servlet 3.1 Async IO（\[Read|Write\]Listener）。
 
@@ -227,7 +227,7 @@ public class StreamingResponseBodyController {
 
 ### AsyncTaskExecutor
 
-Spring MVC执行异步操作需要用到``AsyncTaskExecutor``，这个可以在用``WebMvcConfigurer.configureAsyncSupport``方法来提供（[相关文档][ref-7]）。
+Spring MVC执行异步操作需要用到``AsyncTaskExecutor``，这个可以在用``WebMvcConfigurer.configureAsyncSupport``方法来提供（[相关文档][ref-5]）。
 如果不提供，则使用``SimpleAsyncTaskExecutor``，``SimpleAsyncTaskExecutor``不使用thread pool，因此推荐提供自定义的``AsyncTaskExecutor``。
 
 需要注意的是``@EnableAsync``也需要用到``AsyncTaskExecutor``，不过Spring MVC和它用的不是同一个。
@@ -241,7 +241,7 @@ Spring MVC执行异步操作需要用到``AsyncTaskExecutor``，这个可以在�
 * ``CallableProcessingInterceptor[Adapter]``，使用``WebMvcConfigurer.configureAsyncSupport``注册
 * ``DeferredResultProcessingInterceptor[Adapter]``，使用``WebMvcConfigurer.configureAsyncSupport``注册
 
-官方文档：[Intercepting Async Requests][ref-8]
+官方文档：[Intercepting Async Requests][ref-6]
 
 ## WebAsyncManager
 
@@ -252,29 +252,29 @@ Spring MVC执行异步操作需要用到``AsyncTaskExecutor``，这个可以在�
 * [Spring Web MVC Doc - Supported method return values][ref-1]
 * [Spring Web MVC Doc - Asynchronous Request Processing][ref-2]
 * [Spring Web MVC Doc - Configuring Asynchronous Request Processing][ref-3]
-* [Configuring Spring MVC Async Threads][ref-5]
+* [Configuring Spring MVC Async Threads][ref-4]
 
-* [Spring MVC 3.2 Preview: Techniques for Real-time Updates][ref-16]
-* [Spring MVC 3.2 Preview: Introducing Servlet 3, Async Support][ref-4]
-* [Spring MVC 3.2 Preview: Making a Controller Method Asynchronous][ref-9]
-* [Spring MVC 3.2 Preview: Adding Long Polling to an Existing Web Application][ref-10]
-* [Spring MVC 3.2 Preview: Chat Sample][ref-11]
+* [Spring MVC 3.2 Preview: Introducing Servlet 3, Async Support][blog-1]
+* [Spring MVC 3.2 Preview: Techniques for Real-time Updates][blog-2]
+* [Spring MVC 3.2 Preview: Making a Controller Method Asynchronous][blog-3]
+* [Spring MVC 3.2 Preview: Adding Long Polling to an Existing Web Application][blog-4]
+* [Spring MVC 3.2 Preview: Chat Sample][blog-5]
 
 [ref-1]: https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/html/mvc.html#mvc-ann-return-types
 [ref-2]: https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/html/mvc.html#mvc-ann-async
 [ref-3]: https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/html/mvc.html#mvc-ann-async-configuration
-[ref-4]: https://spring.io/blog/2012/05/07/spring-mvc-3-2-preview-introducing-servlet-3-async-support
-[ref-5]: http://www.clianz.com/2016/02/24/configuring-spring-mvc-async-threads/
-[ref-7]: https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/html/mvc.html#mvc-ann-async-configuration-spring-mvc
-[ref-8]: https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/html/mvc.html#mvc-ann-async-interception
-[ref-9]: https://spring.io/blog/2012/05/10/spring-mvc-3-2-preview-making-a-controller-method-asynchronous/
-[ref-10]: https://spring.io/blog/2012/05/14/spring-mvc-3-2-preview-adding-long-polling-to-an-existing-web-application
-[ref-11]: https://spring.io/blog/2012/05/16/spring-mvc-3-2-preview-chat-sample/
-[ref-12]: https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/html/mvc.html#mvc-ann-async-http-streaming
-[ref-13]: https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/html/mvc.html#mvc-ann-async-sse
-[ref-14]: https://www.w3.org/TR/eventsource/
-[ref-15]: https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/html/mvc.html#mvc-ann-async-output-stream
-[ref-16]: https://spring.io/blog/2012/05/08/spring-mvc-3-2-preview-techniques-for-real-time-updates/
+[ref-4]: http://www.clianz.com/2016/02/24/configuring-spring-mvc-async-threads/
+[ref-5]: https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/html/mvc.html#mvc-ann-async-configuration-spring-mvc
+[ref-6]: https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/html/mvc.html#mvc-ann-async-interception
+[ref-7]: https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/html/mvc.html#mvc-ann-async-http-streaming
+[ref-8]: https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/html/mvc.html#mvc-ann-async-sse
+[ref-9]: https://docs.spring.io/spring/docs/4.3.9.RELEASE/spring-framework-reference/html/mvc.html#mvc-ann-async-output-stream
+[w3-1]: https://www.w3.org/TR/eventsource/
+[blog-1]: https://spring.io/blog/2012/05/07/spring-mvc-3-2-preview-introducing-servlet-3-async-support
+[blog-2]: https://spring.io/blog/2012/05/08/spring-mvc-3-2-preview-techniques-for-real-time-updates/
+[blog-3]: https://spring.io/blog/2012/05/10/spring-mvc-3-2-preview-making-a-controller-method-asynchronous/
+[blog-4]: https://spring.io/blog/2012/05/14/spring-mvc-3-2-preview-adding-long-polling-to-an-existing-web-application
+[blog-5]: https://spring.io/blog/2012/05/16/spring-mvc-3-2-preview-chat-sample/
 [src-MvcAsyncTaskExecutorConfigurer]: src/main/java/me/chanjar/learning/config/MvcAsyncTaskExecutorConfigurer.java
 [src-ExecutorServiceConfiguration]: src/main/java/me/chanjar/learning/config/ExecutorServiceConfiguration.java
 [src-CallableController]: src/main/java/me/chanjar/learning/CallableController.java
