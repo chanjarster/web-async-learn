@@ -36,8 +36,8 @@ public class AsyncServlet extends HttpServlet {
             String result = resource.process(param);
             HttpServletResponse response = acontext.getResponse();
             /* ... print to the response ... */
-            acontext.complete();
-            }
+            acontext.complete(); 
+         }
       });
    }
 }

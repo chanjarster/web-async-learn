@@ -47,13 +47,11 @@ public class AsyncInterceptorConfiguration extends WebMvcConfigurerAdapter {
     @Override
     public <T> void postProcess(NativeWebRequest request, Callable<T> task, Object concurrentResult) throws Exception {
       LOGGER.info("postProcess");
-
     }
 
     @Override
     public <T> Object handleTimeout(NativeWebRequest request, Callable<T> task) throws Exception {
       LOGGER.info("handleTimeout");
-
       return null;
     }
 
